@@ -1,0 +1,144 @@
+import { useState } from 'react';
+import { useHistory, Link } from 'react-router-dom';
+import { baseURL } from '../../api';
+import axios from 'axios';
+import adminImg from './admin.svg';
+
+const Admin = () => {
+	const history = useHistory();
+
+	const [adminUserData, setAdminUserData] = useState({
+		email: '',
+		password: '',
+	});
+	const [success, setSuccess] = useState('');
+	const [error, setError] = useState('');
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		setSuccess('');
+		setError('');
+		try {
+			const { data } = await axios.post(
+				`${baseURL}/auth/login/admin`,
+				adminUserData,
+				{
+					credentials: 'include',
+				}
+			);
+			setSuccess(data.message);
+
+			setTimeout(() => {
+				history.push('/');
+				window.location.reload();
+			}, 2000);
+		} catch (error) {
+			if (error.response && error.response.data) {
+				return setError(error.response.data.message);
+			}
+		}
+	};
+	return (
+		<div className='min-w-screen min-h-screen bg-gray-900 flex items-center justify-center px-5 py-5'>
+			<div className='bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden'>
+				<div className='md:flex w-full'>
+                    <div className='hidden md:block w-1/2 bg-indigo-500'>
+                        <img src={adminImg} alt="adminimage" className="object-contain h-full"/>
+					</div>
+					<div className='w-full md:w-1/2 py-10 px-5 md:px-10'>
+						<div className='text-center mb-10'>
+							<h1 className='font-bold text-3xl text-gray-900'>
+								ADMIN
+							</h1>
+							<p>Enter your information</p>
+						</div>
+						{error && (
+							<h1 className='text-red-600 text-center'>
+								{error}
+							</h1>
+						)}
+						{success && (
+							<h1 className='text-green-600 text-center'>
+								{success} Now Loading...
+							</h1>
+						)}
+						<form onSubmit={handleSubmit}>
+							<div className='flex -mx-3'>
+								<div className='w-full px-3 mb-5'>
+									<label
+										htmlFor='email'
+										className='text-xs font-semibold px-1'
+									>
+										Email
+									</label>
+									<div className='flex'>
+										<div className='w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center'>
+											<i className='mdi mdi-email-outline text-gray-400 text-lg'></i>
+										</div>
+										<input
+											type='email'
+											className='w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500'
+											placeholder='johnsmith@example.com'
+											name='email'
+											value={adminUserData.email}
+											onChange={(e) =>
+												setAdminUserData({
+													...adminUserData,
+													email: e.target.value,
+												})
+											}
+										/>
+									</div>
+								</div>
+							</div>
+							<div className='flex -mx-3'>
+								<div className='w-full px-3 mb-12'>
+									<label
+										htmlFor='password'
+										className='text-xs font-semibold px-1'
+									>
+										Password
+									</label>
+									<div className='flex'>
+										<div className='w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center'>
+											<i className='mdi mdi-lock-outline text-gray-400 text-lg'></i>
+										</div>
+										<input
+											type='password'
+											className='w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500'
+											placeholder='************'
+											autoComplete='password'
+											name='password'
+											value={adminUserData.password}
+											onChange={(e) =>
+												setAdminUserData({
+													...adminUserData,
+													password: e.target.value,
+												})
+											}
+										/>
+									</div>
+								</div>
+							</div>
+							<div className='flex -mx-3'>
+								<div className='w-full px-3 mb-5'>
+									<button className='block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold'>
+										ADMIN LOGIN
+									</button>
+								</div>
+							</div>
+						</form>
+						<p className='text-center font-light '>
+							Or Login from{' '}
+							<span className=' border-b-[1px] border-indigo-500 text-indigo-500 hover:opacity-80'>
+								<Link to='/login'>Nomal Login Area</Link>
+							</span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
+};
+
+export default Admin;
