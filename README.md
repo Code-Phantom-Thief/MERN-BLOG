@@ -1,6 +1,7 @@
 # MERN-BLOG
 
-This is simple Blog project.
+This is simple Blog project in The Odin Project.
+(https://www.theodinproject.com/paths/full-stack-javascript/courses/nodejs/lessons/blog-api)
 
 I created this blog by MERN (MongoDB / Express / React / Node.js) / JWT(jsonwebtoken) and Cookie(HttpOnly).
 
