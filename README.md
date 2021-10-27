@@ -1,18 +1,19 @@
 # MERN-BLOG
 
-This is simple authentication project for The Odin Project.
+This is simple Blog project.
 
-Almost students created this project using by EJS or Pug and Passport.js.
-
-But, I created by MERN (MongoDB / Express / React / Node.js) / JWT(jsonwebtoken) and Cookie(HttpOnly).
+I created this blog by MERN (MongoDB / Express / React / Node.js) / JWT(jsonwebtoken) and Cookie(HttpOnly).
 
 ### LIVE DEMO: "https://mern-blog-codephantomthief.netlify.app/blogs"
 
-(This site is using Heroku by server side. So, I think it takes a time to reading page)
+(This site is using Heroku by server side. So, I think it takes a time to reading page.
+ I don't know why, JWT in HttpOnly Cookie can not work correctly in my computer.
+ But, I ask the odin project's member for researched problem. And, he(or she) said no problem.
+ So, I think that the blog's site is running without any issues in your pc.(I hope))
 
-![App Screen Shot1](https://i.ibb.co/f8X15r8/screen1.png)
+![App Screen Shot1](https://i.ibb.co/z5kRxkx/2021-10-27-17-39-36.png)
 
-![App Screen Shot1](https://i.ibb.co/H7sTrQc/screen2.png)
+![App Screen Shot1](https://i.ibb.co/6n6mPWg/2021-10-27-17-40-20.png)
 
 ### Introduction
 
@@ -26,15 +27,13 @@ client side : axios / react-toastify / react-router-dom / date-fns
 
 ### App Info:  
 
-If you signup (or login), you can create message.
+If you signup (or login), you can post comments in blog.
 
-But, only site members can see message's author.
+Only admin can create blog's post.
 
-You can update / delete message only your past message.
-
-If you try update / delete others message, you will deny and see error message.
-
-But if you have an admin status, you can delete all messages. (Of course, I protect this route with secret password.)
+But, I don't want to give admin status except me. 
+So, I did not create admin route in this blog. 
+Of course, I had skill(lol)
 
 Thank you for reading.
 
