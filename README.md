@@ -23,8 +23,8 @@ I created this blog by MERN (MongoDB / Express / React / Node.js) / JWT(jsonwebt
 
 ### Other NPM Packages:
 
-server side : brypt / cookie-parser / cors / helmet / joi / jsonwebtoken / jwt-decode / mongoose / morgan
-client side : axios / react-toastify / react-router-dom / date-fns
+server side : brypt / cookie-parser / cors / helmet / joi / jsonwebtoken / mongoose / morgan
+client side : axios / react-router-dom / date-fns / framer-motion
 
 ### App Info:  
 
