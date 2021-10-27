@@ -6,7 +6,7 @@ Almost students created this project using by EJS or Pug and Passport.js.
 
 But, I created by MERN (MongoDB / Express / React / Node.js) / JWT(jsonwebtoken) and Cookie(HttpOnly).
 
-### LIVE DEMO: "https://mern-members-only.netlify.app/"
+### LIVE DEMO: "https://mern-blog-codephantomthief.netlify.app/blogs"
 
 (This site is using Heroku by server side. So, I think it takes a time to reading page)
 
